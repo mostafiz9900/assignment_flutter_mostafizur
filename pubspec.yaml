@@ -1,0 +1,34 @@
+name: assignment_flutter_mostafizur
+version: 1.0.0+1
+publish_to: none
+description: Assignment Flutter Developer  weDevs
+environment: 
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  cupertino_icons: 1.0.8
+  get: 4.6.6
+  flutter:
+    sdk: flutter
+  get_storage: ^2.1.1
+  flutter_easyloading: ^3.0.5
+  fluttertoast: 8.2.5
+  google_fonts: 6.1.0
+  connectivity_plus: ^6.0.2
+  flutter_dotenv: ^5.1.0
+  cached_network_image: ^3.3.1
+  shimmer: ^3.0.0
+  socket_io_client: ^2.0.3+1
+
+dev_dependencies:
+  flutter_lints: 4.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+  assets:
+    - .env
+    - assets/animations/
+    - assets/images/
+    - assets/svg_image/
