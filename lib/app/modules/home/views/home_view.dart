@@ -1,6 +1,9 @@
 import 'dart:ui';
 
+import 'package:animated_bottom_navigation_bar/animated_bottom_navigation_bar.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:get/get.dart';
 
@@ -115,20 +118,64 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     final ThemeServices themeServices = Get.find();
     // print(controller.hashCode);
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: AppSpace.pagePadding,
-          child: Column(
-            children: [
-              const Text(
-                'HomeView is working',
-                style: TextStyle(fontSize: 20),
-              ),
-            ],
+
+    return GetBuilder<HomeController>(
+      builder: (homeCon) {
+        return Scaffold(
+          body:  SafeArea(
+            child: homeCon.bodyList.elementAt(homeCon.bottomNavIndex)
+
           ),
-        ),
-      ),
+          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+          floatingActionButton: Container(
+            alignment: Alignment.center,
+            height: 56,
+            width: 56,
+
+            decoration:  BoxDecoration(
+                shape: BoxShape.circle,
+                gradient: LinearGradient(colors: [hexToColor('#FF679B'), hexToColor('#FF7B51')])
+            ),
+            child: SvgPicture.asset(AssetsConstants.searchIconSvg,width: 26,height: 26,),
+
+          ),
+          bottomNavigationBar: AnimatedBottomNavigationBar.builder(
+            itemCount: homeCon.iconList.length,
+            tabBuilder: (int index, bool isActive) {
+              final color = isActive
+                  ? hexToColor('#FF679B')
+                  : Colors.grey.shade500;
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SvgPicture.asset(
+                    homeCon.iconList[index],
+                    width: 24,
+                    color: color,
+                  ),
+                  const SizedBox(height: 4),
+
+                ],
+              );
+            },
+            backgroundColor: Colors.white,
+            activeIndex: homeCon.bottomNavIndex,
+            splashSpeedInMilliseconds: 300,
+            notchSmoothness: NotchSmoothness.defaultEdge,
+            gapLocation: GapLocation.center,
+            leftCornerRadius: 10,
+            rightCornerRadius: 10,
+            onTap: (index) => homeCon.changBottomNavBar(index),
+            shadow: BoxShadow(
+              offset: const Offset(0, 1),
+              blurRadius: 12,
+              spreadRadius: 0.5,
+              color: Colors.grey.withOpacity(0.20),
+            ),
+          ),
+        );
+      }
     );
   }
 }

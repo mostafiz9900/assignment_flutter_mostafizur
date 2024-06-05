@@ -32,6 +32,7 @@ class CustomEditTextFormField extends StatelessWidget {
   final AutovalidateMode? validateMode;
   final TextStyle? hintStyle;
   final Function()? onChanging;
+  final Color? borderColor;
 
   const CustomEditTextFormField({
     super.key,
@@ -61,6 +62,7 @@ class CustomEditTextFormField extends StatelessWidget {
     this.onChanging,
     this.autoFocus = false,
     this.isEnabledBorder = true,
+    this.borderColor,
   });
 
   @override
@@ -123,7 +125,7 @@ class CustomEditTextFormField extends StatelessWidget {
             borderRadius: BorderRadius.all(Radius.circular(AppDimens.space8.r)),
             borderSide: BorderSide(
               color: isEnabledBorder
-                  ? ColorConstants.borderColor.withOpacity(0.50)
+                  ?borderColor?? ColorConstants.borderColor.withOpacity(0.13)
                   : Colors.transparent,
               width: 1.2,
             ),

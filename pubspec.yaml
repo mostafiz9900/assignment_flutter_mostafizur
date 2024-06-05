@@ -21,6 +21,9 @@ dependencies:
   socket_io_client: ^2.0.3+1
   flutter_screenutil: ^5.9.3
   flutter_svg: ^2.0.10+1
+  animated_bottom_navigation_bar: ^1.3.3
+  auto_size_text: ^3.0.0
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_lints: 4.0.0
@@ -38,7 +41,10 @@ flutter:
     - assets/images/g_logo.png
     - assets/images/gmail.svg
     - assets/images/google_icon.svg
+    - assets/images/more_icon.svg
+    - assets/images/notification_icon.svg
     - assets/images/password.svg
     - assets/images/password_visibile.svg
+    - assets/images/search_icon.svg
     - assets/images/user_icon.svg
     - assets/svg_image/

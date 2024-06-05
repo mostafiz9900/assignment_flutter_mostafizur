@@ -18,5 +18,12 @@ class AssetsConstants {
   static const String fbIcon = 'assets/images/fb_icon.svg';
   static const String userIconSvg = 'assets/images/user_icon.svg';
   static const String cameraIconSvg = 'assets/images/camera_icon.svg';
+  static const String searchIconSvg = 'assets/images/search_icon.svg';
+  static const String cartIconSvg = 'assets/images/cart_icon.svg';
+  static const String homeIconSvg = 'assets/images/home_icon.svg';
+  static const String moreIconSvg = 'assets/images/more_icon.svg';
+  static const String userProfileIconSvg = 'assets/images/user_profile_icon.svg';
+  static const String notificationIconSvg = 'assets/images/notification_icon.svg';
+  static const String heartIconSvg = 'assets/images/heart.svg';
 
 }

@@ -1,10 +1,16 @@
 import 'dart:ui';
 
+import 'package:assignment_flutter_mostafizur/app/app_pkg.dart';
+import 'package:assignment_flutter_mostafizur/app/modules/home/views/local_widget/cart_widget.dart';
+import 'package:assignment_flutter_mostafizur/app/modules/home/views/local_widget/home_widget.dart';
+import 'package:assignment_flutter_mostafizur/app/modules/home/views/local_widget/more_widget.dart';
+import 'package:assignment_flutter_mostafizur/app/modules/home/views/local_widget/user_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomeController extends GetxController {
   late final AppLifecycleListener _listener;
+  var bottomNavIndex = 0;
   @override
   void onInit() {
     super.onInit();
@@ -25,6 +31,23 @@ class HomeController extends GetxController {
     super.onClose();
     _listener.dispose();
   }
+  void changBottomNavBar(int index){
+    bottomNavIndex=index;
+    update();
+
+  }
+  final iconList = <String>[
+    AssetsConstants.homeIconSvg,
+    AssetsConstants.moreIconSvg,
+    AssetsConstants.cartIconSvg,
+    AssetsConstants.userProfileIconSvg,
+  ];
+  final bodyList=const <Widget>[
+    HomeWidget(),
+    MoreWidget(),
+    CartWidget(),
+    UserProfileWidget(),
+  ];
 // Ask the user if they want to exit the app. If the user
   // cancels the exit, return AppExitResponse.cancel. Otherwise,
   // return AppExitResponse.exit.

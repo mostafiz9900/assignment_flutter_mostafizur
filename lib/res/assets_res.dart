@@ -11,7 +11,10 @@ class AssetsRes {
   static const String G_LOGO = 'assets/images/g_logo.png';
   static const String GMAIL = 'assets/images/gmail.svg';
   static const String GOOGLE_ICON = 'assets/images/google_icon.svg';
+  static const String MORE_ICON = 'assets/images/more_icon.svg';
+  static const String NOTIFICATION_ICON = 'assets/images/notification_icon.svg';
   static const String PASSWORD = 'assets/images/password.svg';
   static const String PASSWORD_VISIBILE = 'assets/images/password_visibile.svg';
+  static const String SEARCH_ICON = 'assets/images/search_icon.svg';
   static const String USER_ICON = 'assets/images/user_icon.svg';
 }

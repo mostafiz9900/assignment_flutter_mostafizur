@@ -64,7 +64,7 @@ class CustomButton extends StatelessWidget {
             : null,
       ),
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: AppDimens.space5),
+        padding: const EdgeInsets.symmetric(horizontal: AppDimens.space5),
         child: isLoading == true
             ?  Center(
                 child: Center(
