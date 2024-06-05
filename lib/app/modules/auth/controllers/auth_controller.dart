@@ -20,7 +20,7 @@ class AuthController extends GetxController {
   final loginEmailController = TextEditingController();
   final loginPasswordController = TextEditingController();
 
-
+  bool isPasswordVisible = false;
 
   void register(BuildContext context) async {
     AppFocus.unfocus(context);
@@ -74,7 +74,10 @@ class AuthController extends GetxController {
     loginEmailController.dispose();
     loginPasswordController.dispose();
   }
-
+  void showHidePassword() {
+    isPasswordVisible = !isPasswordVisible;
+    update();
+  }
 
 
 }

@@ -10,3 +10,4 @@ export 'languages/app_translations.dart';
 export 'languages/Languages.dart';
 export 'assets.dart';
 export 'constants.dart';
+export 'space.dart';

@@ -9,6 +9,5 @@ class DependencyInjection {
   static Future<void> init() async {
      Get.lazyPut(() => StorageService());
     Get.put<ThemeServices>(ThemeServices(),permanent: true);
-     Get.lazyPut(() => SocketDBService(AppConfig.sebaSocketUrl));
   }
 }

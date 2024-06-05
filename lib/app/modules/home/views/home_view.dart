@@ -7,7 +7,7 @@ import 'package:get/get.dart';
 import '../../../app_pkg.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
 
   @override
   State<HomeView> createState() => _HomeViewState();
@@ -116,25 +116,17 @@ class _HomeViewState extends State<HomeView> {
     final ThemeServices themeServices = Get.find();
     // print(controller.hashCode);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('HomeView'),
-        // centerTitle: true,
-      ),
-      body: Center(
-        child: Column(
-          children: [
-            const Text(
-              'HomeView is working',
-              style: TextStyle(fontSize: 20),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                // themeServices.toggleTheme();
-                Get.back();
-              },
-              child: const Text('Change Theme'),
-            ),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: AppSpace.pagePadding,
+          child: Column(
+            children: [
+              const Text(
+                'HomeView is working',
+                style: TextStyle(fontSize: 20),
+              ),
+            ],
+          ),
         ),
       ),
     );

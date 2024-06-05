@@ -9,6 +9,7 @@ class ColorConstants {
   static Color lightGray = const Color(0xFFF6F6F6);
   static Color darkGray = const Color(0xFF9F9F9F);
   static Color black = const Color(0xFF000000);
+  static Color borderColor = const Color(0xFF000000);
   static Color white = const Color(0xFFFFFFFF);
   static Color primaryColor = hexToColor('#084277');
   static Color secondaryColor = Colors.white;
