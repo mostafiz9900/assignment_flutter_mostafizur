@@ -5,7 +5,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../../app_pkg.dart';
-import '../../../../data/models/response/product_response.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({super.key});
