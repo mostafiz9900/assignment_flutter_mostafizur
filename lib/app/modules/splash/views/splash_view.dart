@@ -1,3 +1,4 @@
+import 'package:assignment_flutter_mostafizur/app/app_pkg.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,11 +11,8 @@ class SplashView extends GetView<SplashController> {
   Widget build(BuildContext context) {
     print(controller.hashCode);
     return Scaffold(
-      body: const Center(
-        child: Text(
-          '',
-          style: TextStyle(fontSize: 20),
-        ),
+      body:  Center(
+        child: Image.asset(AssetsConstants.logo),
       ),
     );
   }

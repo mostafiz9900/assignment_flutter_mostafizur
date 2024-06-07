@@ -68,6 +68,7 @@ class CustomEditTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 60.11,
       decoration: BoxDecoration(
           boxShadow:  [ BoxShadow(
             color: Colors.grey.shade200,
@@ -91,7 +92,7 @@ class CustomEditTextFormField extends StatelessWidget {
         },
         style: const TextStyle(
           color: Colors.black,
-          fontSize: 12,
+          fontSize: 17.37,
         ),
         onChanged: (String? value) {
           if (value != null) {
@@ -103,16 +104,18 @@ class CustomEditTextFormField extends StatelessWidget {
         inputFormatters: inputFormatters,
         obscureText: passwordVisible ?? false,
         decoration: InputDecoration(
+          // isDense: true,
           filled: true,
           //<-- SEE HERE
           fillColor: backgroundColor ?? ColorConstants.editTextFillColor,
           hintTextDirection: TextDirection.ltr,
-          contentPadding: EdgeInsets.only(
-            left: AppDimens.space20,
-            right: AppDimens.space14,
-            top: maxLine != null ? AppDimens.space10 : 0,
-            bottom: maxLine != null ? AppDimens.space10 : AppDimens.space5,
-          ),
+          // contentPadding: EdgeInsets.only(
+          //   left: AppDimens.space20,
+          //   right: AppDimens.space14,
+          //   top: 16,bottom: 10
+          //   // top: maxLine != null ? AppDimens.space10 : 0,
+          //   // bottom: maxLine != null ? AppDimens.space10 : AppDimens.space5,
+          // ),
           hintText: hintText,
           hintStyle: hintStyle ??
               TextStyle(

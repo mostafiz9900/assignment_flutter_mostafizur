@@ -45,7 +45,7 @@ class LoginView extends GetView<AuthController> {
                           // },
                           onChanged: (value) {},
                         ),
-                        AppSpace.spaceH10,
+                        AppSpace.spaceH16,
                         CustomEditTextFormField(
                           controller: authController.loginPasswordController,
                           keyboardType: TextInputType.emailAddress,

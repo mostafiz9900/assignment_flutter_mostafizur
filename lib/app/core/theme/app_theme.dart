@@ -37,6 +37,7 @@ class AppTheme {
     brightness: Brightness.light,
     appBarTheme: const AppBarTheme(
       systemOverlayStyle: SystemUiOverlayStyle.dark,
+      centerTitle: true
     ),
  /*   primaryTextTheme: TextTheme(
       bodyMedium: AppTextStyleLight.displayMedium,
