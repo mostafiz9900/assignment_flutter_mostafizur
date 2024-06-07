@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../../app_pkg.dart';
@@ -7,33 +8,36 @@ import '../../app_pkg.dart';
 class AppTheme {
   /// Light Theme
   ThemeData lightTheme = ThemeData.light().copyWith(
-    primaryColor: ColorConstants.primaryColor,
+    primaryColor: ColorConstants.white,
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
       seedColor: Colors.white,
       brightness: Brightness.light,
       onSurface: Colors.white,
-      surface: ColorConstants.primaryColor,
+      surface: ColorConstants.white,
       primary: Colors.black,
       secondary: Colors.red,
     ),
-    scaffoldBackgroundColor: ColorConstants.backgroundColor,
+    scaffoldBackgroundColor: ColorConstants.lightScaffoldBackgroundColor,
     elevatedButtonTheme: ElevatedButtonThemeData(
-      style: ElevatedButton.styleFrom(
-        foregroundColor: Colors.white,
-        backgroundColor: ColorConstants.primaryColor,
-      ),
+      // style: ElevatedButton.styleFrom(
+      //   foregroundColor: Colors.white,
+      //   backgroundColor: ColorConstants.white,
+      // ),
     ),
     textButtonTheme: TextButtonThemeData(
       style: TextButton.styleFrom(
         foregroundColor: Colors.white,
-        backgroundColor: ColorConstants.primaryColor,
+        backgroundColor: ColorConstants.white,
       ),
     ),
     cardTheme: const CardTheme(
       color: Colors.white,
     ),
     brightness: Brightness.light,
+    appBarTheme: const AppBarTheme(
+      systemOverlayStyle: SystemUiOverlayStyle.dark,
+    ),
  /*   primaryTextTheme: TextTheme(
       bodyMedium: AppTextStyleLight.displayMedium,
     ),

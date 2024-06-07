@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ColorConstants {
-  static Color lightScaffoldBackgroundColor = hexToColor('#F9F9F9');
+  static Color lightScaffoldBackgroundColor = hexToColor('#F8F8F8');
   static Color darkScaffoldBackgroundColor = hexToColor('#2F2E2E');
   static Color secondaryAppColor = hexToColor('#22DDA6');
   static Color secondaryDarkAppColor = Colors.white;
@@ -15,6 +15,7 @@ class ColorConstants {
   static Color secondaryColor = Colors.white;
   static Color whiteColor = Colors.white;
   static Color backgroundColor = hexToColor("#F2F4F7");
+  static Color colorPrimary = hexToColor("#F2F4F7");
   static Color buttonColor = hexToColor("#EF693D");
   static Color editTextFillColor =hexToColor("#F7F7F7");
   static Color iconColor = hexToColor("#CCCCCC");

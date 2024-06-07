@@ -19,43 +19,15 @@ class StorageService extends GetxService{
   static void remove(String key) {
     _box.remove(key);
   }
-  static void save2<T>(String key, T value) {
-    _box.write(key, value);
+
+// Save Map
+  static Future<void> saveMap(String key, Map<String, dynamic> map) async {
+    await _box.write(key, map);
   }
 
-  static T? read2<T>(String key) {
-    try {
-      return _box.read<T>(key);
-    } catch (e) {
-      print('Error reading value for key "$key": $e');
-      return null;
-    }
-  }
-
-  static void remove3(String key) {
-    _box.remove(key);
-  }
-
-  static void clear() {
-    _box.erase();
-  }
-  static Future<void> setString(String key, String value) async {
-    await _box.write(key, value);
-  }
-  static String getString(String key) {
-    return _box.read(key) ?? '';
-  }
-  static Future<void> setObject<T>(String key, T value) async {
-    final jsonString = json.encode(value);
-    await _box.write(key, jsonString);
-  }
-
-  static T? getObject<T>(String key, {T? defaultValue}) {
-    final jsonString = _box.read(key) as String?;
-    if (jsonString != null) {
-      return json.decode(jsonString) as T;
-    }
-    return defaultValue;
+// Get Map
+  static Map<String, dynamic>? getMap(String key) {
+    return _box.read(key);
   }
   static Future<void> setWithExpiration(String key, String value, Duration expiration) async {
     final data = {

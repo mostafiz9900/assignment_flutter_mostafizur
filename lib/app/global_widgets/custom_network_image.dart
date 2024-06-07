@@ -66,10 +66,11 @@ class CustomCachedNetworkImageWidget extends StatelessWidget {
           //   Colors.grey.shade200,
           //   radius,
           // ),
-          // child: Image.asset(
-          //   AppAssets.demoProfileImagePng,
-          //   fit: boxFit ?? BoxFit.cover,
-          // ),
+          child: Image.asset(
+            AssetsConstants.product2ImageJpg,
+            fit: boxFit ?? BoxFit.cover,
+
+          ),
         ),
       ):ClipRect(
         child: Container(

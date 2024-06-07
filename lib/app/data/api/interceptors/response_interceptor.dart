@@ -11,7 +11,7 @@ import '../../../app_pkg.dart';
 FutureOr<dynamic> responseInterceptor(
     Request request, Response response) async {
 print('Response received for ${request.url}: ${response.statusCode}');
-  EasyLoading.dismiss();
+  // EasyLoading.dismiss();
   responseLogger(response);
   if (response.statusCode != 200) {
     handleErrorStatus(response);

@@ -27,20 +27,3 @@ class ApiError {
 
 
 
-class MyController extends GetxController {
-
-  getResult() async {
-    final AuthController cont = Get.put(
-        AuthController(authRepository: Get.find()));
-    var result2 = await cont.login(Get.overlayContext!);
-    var result = await Future.delayed(Duration.zero, () {
-      Result2.success("value");
-    });
-    result2.when(
-        value: "",
-        error: ""
-
-    );
-  }
-}
-

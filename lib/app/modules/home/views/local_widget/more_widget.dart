@@ -1,3 +1,4 @@
+import 'package:assignment_flutter_mostafizur/app/app_pkg.dart';
 import 'package:flutter/material.dart';
 
 class MoreWidget extends StatelessWidget {
@@ -6,8 +7,11 @@ class MoreWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('More page'),),
-      body: Text('MoreWidget'),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Text('More page',style: TextStyle(color: hexToColor('#222455')),),),
+      body: const Center(child: Text('MoreWidget')),
     );
   }
 }

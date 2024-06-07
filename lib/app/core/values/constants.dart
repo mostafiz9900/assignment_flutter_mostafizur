@@ -14,5 +14,5 @@ class AppConstants {
   static const double paddingLarge = 32.0;
 
   // URL constants
-  static const String apiBaseUrl = 'https://api.myflutterapp.com';
+  static const String noInternetConnection = "No internet connection";
 }

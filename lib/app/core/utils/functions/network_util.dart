@@ -6,7 +6,7 @@ class NetworkUtil {
     var connectivityResult = await (connectivity.Connectivity().checkConnectivity());
     return connectivityResult.contains( connectivity.ConnectivityResult.none);
   }
-  Future<bool> checkInternetConnection() async {
+ static Future<bool> checkInternetConnection() async {
     final  connectivityResult =
     await connectivity.Connectivity().checkConnectivity();
     if (GetPlatform.isAndroid) {

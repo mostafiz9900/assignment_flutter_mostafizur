@@ -20,128 +20,147 @@ class RegistrationView extends GetView<AuthController> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: AppSpace.pagePadding,
-                  child: Column(
-                    children: [
-                      AppSpace.spaceH20,
-                      AppSpace.spaceH30,
-                      Stack(
-                        fit: StackFit.loose,
-                        children: [
-                          Container(
-                            width: 121,
-                            height: 121,
-                            padding: EdgeInsets.all(50),
-                            decoration: BoxDecoration(
-                              color: hexToColor('#FFFFFF'),
-                              borderRadius: BorderRadius.circular(90)
+                  child: Form(
+                    key: authController.registerFormKey,
+                    child: Column(
+                      children: [
+                        AppSpace.spaceH20,
+                        AppSpace.spaceH30,
+                        Stack(
+                          fit: StackFit.loose,
+                          children: [
+                            Container(
+                              width: 121,
+                              height: 121,
+                              padding: const EdgeInsets.all(50),
+                              decoration: BoxDecoration(
+                                color: hexToColor('#FFFFFF'),
+                                borderRadius: BorderRadius.circular(90)
+                              ),
+                              child: FittedBox(
+                                  fit: BoxFit.cover,
+                                  child: SvgPicture.asset(AssetsConstants.userIconSvg,width: 25,height: 31,)),
                             ),
-                            child: FittedBox(
-                                fit: BoxFit.cover,
-                                child: SvgPicture.asset(AssetsConstants.userIconSvg,width: 25,height: 31,)),
-                          ),
-                          Positioned.fill(
-                              bottom: -35,
-                              right: -22,
-                              child: Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: SvgPicture.asset(AssetsConstants.cameraIconSvg)))
-                        ],
-                      ),
-                      AppSpace.spaceH30,
-                      const Text('Sign Up',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                      AppSpace.spaceH30,
-                      CustomEditTextFormField(
-                        // controller: authController.loginEmailController,
-                        keyboardType: TextInputType.emailAddress,
-                        isBorder: true,
-                        hintText: 'Name',
-                        backgroundColor: Colors.white,
-                        isEnabledBorder: false,
-                        prefixIcon:AssetsConstants.userIconSvg ,
-                        // validator: (text) {
-                        //   return validateEmail(text!);
-                        // },
-                        onChanged: (value) {},
-                      ),
-                      AppSpace.spaceH10,
-                      CustomEditTextFormField(
-                        // controller: authController.loginEmailController,
-                        keyboardType: TextInputType.emailAddress,
-                        isBorder: true,
-                        hintText: 'Email',
-                        backgroundColor: Colors.white,
-                        isEnabledBorder: false,
-                        prefixIcon:AssetsConstants.gmailSvg ,
-                        // validator: (text) {
-                        //   return validateEmail(text!);
-                        // },
-                        onChanged: (value) {},
-                      ),
-                      AppSpace.spaceH10,
-                      CustomEditTextFormField(
-                        // controller: authController.loginEmailController,
-                        keyboardType: TextInputType.emailAddress,
-                        isBorder: true,
-                        hintText: 'Password',
-                        backgroundColor: Colors.white,
-                        isEnabledBorder: false,
-                        prefixIcon: AssetsConstants.passwordSvg,
-                        passwordVisible: !authController.isPasswordVisible,
-                        suffixOnTap: () {
-                          authController.showHidePassword();
-                        },
-                        // validator: (text) {
-                        //   return validateEmail(text!);
-                        // },
-                        onChanged: (value) {},
-                      ),
-                    AppSpace.spaceH10,
-                      CustomEditTextFormField(
-                        // controller: authController.loginEmailController,
-                        keyboardType: TextInputType.emailAddress,
-                        isBorder: true,
-                        hintText: 'Confirm Password',
-                        backgroundColor: Colors.white,
-                        isEnabledBorder: false,
-                        prefixIcon: AssetsConstants.passwordSvg,
-                        passwordVisible: !authController.isPasswordVisible,
-                        suffixOnTap: () {
-                          authController.showHidePassword();
-                        },
-                        // validator: (text) {
-                        //   return validateEmail(text!);
-                        // },
-                        onChanged: (value) {},
-                      ),
-                      AppSpace.spaceH42,
-                      CustomButton(
-                        onPressed: (){},
-                        title:'Sign Up' ,
-                      ),
-                      AppSpace.spaceH20,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(AssetsConstants.fbIcon,width: 55,),
-                          AppSpace.spaceW6,
-                          Image.asset(AssetsConstants.gIcon,width: 55,),
-                        ],
-                      ),
-            
-                      AppSpace.spaceH30,
-                      CreateNewAccountReg(
-                        alignment: Alignment.center,
-                        titleOne: 'Already have an account? ',
-                        titleTwo: 'Login',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            printLog('data');
-                           Get.toNamed(Routes.LOGIN);
+                            Positioned.fill(
+                                bottom: -35,
+                                right: -22,
+                                child: Align(
+                                    alignment: Alignment.bottomRight,
+                                    child: SvgPicture.asset(AssetsConstants.cameraIconSvg)))
+                          ],
+                        ),
+                        AppSpace.spaceH30,
+                        const Text('Sign Up',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                        AppSpace.spaceH30,
+                        CustomEditTextFormField(
+                          controller: authController.userNameTextEditController,
+                          keyboardType: TextInputType.text,
+                          isBorder: true,
+                          hintText: 'Name',
+                          backgroundColor: Colors.white,
+                          isEnabledBorder: false,
+                          prefixIcon:AssetsConstants.userIconSvg ,
+                          // validator: (text) {
+                          //   return validateEmail(text!);
+                          // },
+                          onChanged: (value) {},
+                        ),
+                        AppSpace.spaceH10,
+                        CustomEditTextFormField(
+                          controller: authController.registerEmailController,
+                          keyboardType: TextInputType.emailAddress,
+                          isBorder: true,
+                          hintText: 'Email',
+                          backgroundColor: Colors.white,
+                          isEnabledBorder: false,
+                          prefixIcon:AssetsConstants.gmailSvg ,
+                          // validator: (text) {
+                          //   return validateEmail(text!);
+                          // },
+                          onChanged: (value) {},
+                        ),
+                        AppSpace.spaceH10,
+                        CustomEditTextFormField(
+                          controller: authController.registerPasswordController,
+                          keyboardType: TextInputType.text,
+                          isBorder: true,
+                          hintText: 'Password',
+                          backgroundColor: Colors.white,
+                          isEnabledBorder: false,
+                          prefixIcon: AssetsConstants.passwordSvg,
+                          passwordVisible: !authController.isPasswordVisible,
+                          suffixOnTap: () {
+                            authController.showHidePassword();
                           },
-                      ),
-            
-                    ],
+                          // validator: (text) {
+                          //   return validateEmail(text!);
+                          // },
+                          onChanged: (value) {},
+                        ),
+                      AppSpace.spaceH10,
+                        CustomEditTextFormField(
+                          controller: authController.registerConfirmPasswordController,
+                          keyboardType: TextInputType.emailAddress,
+                          isBorder: true,
+                          hintText: 'Confirm Password',
+                          backgroundColor: Colors.white,
+                          isEnabledBorder: false,
+                          prefixIcon: AssetsConstants.passwordSvg,
+                          passwordVisible: !authController.isPasswordVisible,
+                          suffixOnTap: () {
+                            authController.showHidePassword();
+                          },
+                          // validator: (text) {
+                          validator: (val) {
+                            if (val!.isEmpty) return '${"Required"}*';
+                            if (val != authController.registerPasswordController.text) {
+                              return 'Not Match';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {},
+                        ),
+                        AppSpace.spaceH42,
+                        CustomButton(
+                          isLoading: authController.loadRegReq,
+                          onPressed: (){
+                            if(authController.userNameTextEditController.text==""){
+                              Helpers.snackbarForErorr2(bodyText: 'Please input user name');
+                            }else if(authController.registerEmailController.text==""){
+                              Helpers.snackbarForErorr2(bodyText: 'Please input email');
+                            }else if(authController.registerPasswordController.text==""){
+                              Helpers.snackbarForErorr2(bodyText: 'Please input password');
+                            }else{
+                              authController.register();
+                            }
+                          },
+                          title:'Sign Up' ,
+                        ),
+                        AppSpace.spaceH20,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(AssetsConstants.fbIcon,width: 55,),
+                            AppSpace.spaceW6,
+                            Image.asset(AssetsConstants.gIcon,width: 55,),
+                          ],
+                        ),
+
+                        AppSpace.spaceH30,
+                        CreateNewAccountReg(
+                          alignment: Alignment.center,
+                          titleOne: 'Already have an account? ',
+                          titleTwo: 'Login',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              printLog('data');
+                             Get.toNamed(Routes.LOGIN);
+                            },
+                        ),
+
+                      ],
+                    ),
                   ),
                 ),
               ),

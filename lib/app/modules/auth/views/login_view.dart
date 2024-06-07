@@ -13,6 +13,7 @@ class LoginView extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: hexToColor('#F8F8F8'),
       body: SafeArea(
         child: GetBuilder<AuthController>(
           builder: (authController) {
@@ -21,88 +22,98 @@ class LoginView extends GetView<AuthController> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10,horizontal: 20),
-                  child: Column(
-                    children: [
-                      AppSpace.spaceH20,
-                      AppSpace.spaceH30,
-                      Image.asset(AssetsConstants.logo),
-                      AppSpace.spaceH30,
-                      const Text('Sign In',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
-                      AppSpace.spaceH30,
-                      CustomEditTextFormField(
-                        // controller: authController.loginEmailController,
-                        keyboardType: TextInputType.emailAddress,
-                        isBorder: true,
-                        hintText: 'Email',
-                        backgroundColor: Colors.white,
-                        isEnabledBorder: false,
-                        prefixIcon:AssetsConstants.gmailSvg ,
-                        // validator: (text) {
-                        //   return validateEmail(text!);
-                        // },
-                        onChanged: (value) {},
-                      ),
-                      AppSpace.spaceH10,
-                      CustomEditTextFormField(
-                        // controller: authController.loginEmailController,
-                        keyboardType: TextInputType.emailAddress,
-                        isBorder: true,
-                        hintText: 'Password',
-                        backgroundColor: Colors.white,
-                        isEnabledBorder: false,
-                        prefixIcon: AssetsConstants.passwordSvg,
-                        suffixIcon: authController.isPasswordVisible
-                            ? AssetsConstants.passwordVisibile
-                            : AssetsConstants.passwordInvisibile,
-                        passwordVisible: !authController.isPasswordVisible,
-                        suffixOnTap: () {
-                          authController.showHidePassword();
-                        },
-                        // validator: (text) {
-                        //   return validateEmail(text!);
-                        // },
-                        onChanged: (value) {},
-                      ),
-                      AppSpace.spaceH20,
-                      CreateNewAccount(
-                        titleTwo: 'Forgot Password?',
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            printLog('data');
-                            // Get.to(() => const RegistrationView(),
-                            //     binding: AuthBinding());
+                  child: Form(
+                    key: authController.loginFormKey,
+                    child: Column(
+                      children: [
+                        AppSpace.spaceH20,
+                        AppSpace.spaceH30,
+                        Image.asset(AssetsConstants.logo),
+                        AppSpace.spaceH30,
+                        const Text('Sign In',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black),),
+                        AppSpace.spaceH30,
+                        CustomEditTextFormField(
+                          controller: authController.loginEmailController,
+                          keyboardType: TextInputType.emailAddress,
+                          isBorder: true,
+                          hintText: 'Email',
+                          backgroundColor: Colors.white,
+                          isEnabledBorder: false,
+                          prefixIcon:AssetsConstants.gmailSvg ,
+                          // validator: (text) {
+                          //   return validateText(text!);
+                          // },
+                          onChanged: (value) {},
+                        ),
+                        AppSpace.spaceH10,
+                        CustomEditTextFormField(
+                          controller: authController.loginPasswordController,
+                          keyboardType: TextInputType.emailAddress,
+                          isBorder: true,
+                          hintText: 'Password',
+                          backgroundColor: Colors.white,
+                          isEnabledBorder: false,
+                          prefixIcon: AssetsConstants.passwordSvg,
+                          suffixIcon: authController.isPasswordVisible
+                              ? AssetsConstants.passwordVisibile
+                              : AssetsConstants.passwordInvisibile,
+                          passwordVisible: !authController.isPasswordVisible,
+                          suffixOnTap: () {
+                            authController.showHidePassword();
                           },
-                      ),
-                      AppSpace.spaceH42,
-                      CustomButton(
-                        onPressed: (){
-                          Get.toNamed(Routes.HOME);
-                        },
-                        title:'Login' ,
-                      ),
-                      AppSpace.spaceH42,
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset(AssetsConstants.fbIcon,width: 55,),
-                          AppSpace.spaceW6,
-                          Image.asset(AssetsConstants.gIcon,width: 55,),
-                        ],
-                      ),
-
-                      AppSpace.spaceH42,
-                      CreateNewAccount(
-                        alignment: Alignment.center,
-                        recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            printLog('data');
-                            Get.to(() => const RegistrationView(),
-                                binding: AuthBinding());
+                          // validator: (text) {
+                          //   return validateText(text!);
+                          // },
+                          onChanged: (value) {},
+                        ),
+                        AppSpace.spaceH20,
+                        CreateNewAccount(
+                          titleTwo: 'Forgot Password?',
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              printLog('data');
+                              // Get.to(() => const RegistrationView(),
+                              //     binding: AuthBinding());
+                            },
+                        ),
+                        AppSpace.spaceH42,
+                        CustomButton(
+                          isLoading:authController.isLoadLogin,
+                          onPressed: (){
+                              if(authController.loginEmailController.text==""){
+                                Helpers.snackbarForErorr2(bodyText: 'Please input email');
+                              }else if(authController.loginPasswordController.text==""){
+                                Helpers.snackbarForErorr2(bodyText: 'Please input password');
+                              }else{
+                                authController.login();
+                            }
                           },
-                      ),
+                          title:'Login' ,
+                        ),
+                        AppSpace.spaceH42,
+                        Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SvgPicture.asset(AssetsConstants.fbIcon,width: 55,),
+                            AppSpace.spaceW6,
+                            Image.asset(AssetsConstants.gIcon,width: 55,),
+                          ],
+                        ),
 
-                    ],
+                        AppSpace.spaceH42,
+                        CreateNewAccount(
+                          alignment: Alignment.center,
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              printLog('data');
+                              Get.to(() => const RegistrationView(),
+                                  binding: AuthBinding());
+                            },
+                        ),
+
+                      ],
+                    ),
                   ),
                 ),
               ),

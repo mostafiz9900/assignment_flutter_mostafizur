@@ -1,6 +1,7 @@
 
 
  import '../../app_pkg.dart';
+import '../models/request/reg_request.dart';
 
 class AuthRepository {
   AuthRepository({required this.authProvider});
@@ -8,20 +9,24 @@ class AuthRepository {
   final AuthProvider authProvider;
 
   Future<ApiResponse<LoginResponse>?> login(LoginRequest data) async {
-   final res = await authProvider.login('/api/login', data);
-   if (BaseResponse.handleApiResponse(res)) {
-    return ApiResponse.success(LoginResponse.fromJson(res.body));
+    var url=ApiUrl.login;
+   final res = await authProvider.login(url, data);
+   printLog('response body ::::  ');
+   printLog('${res.body}123456');
+   if (res.statusCode==200) {
+    return ApiResponse.success(LoginResponse.fromMap(res.body));
    }else{
-    ApiResponse.error(res.body["message"]);
+   return  ApiResponse.error(res.body!=null?res.body["code"].toString():"Server not response");
    }
-   return null;
   }
 
-  Future<dynamic> register(dynamic data) async {
-   final res = await authProvider.register('/api/register', data);
-   if (BaseResponse.handleApiResponse(res)) {
-    return null;
-    // RegisterResponse.fromJson(res.body)
+  Future<ApiResponse<String>> register(RegRequest data) async {
+    var url=ApiUrl.reg;
+   final res = await authProvider.register(url, data);
+   if (res.statusCode==200) {
+    return ApiResponse.success(res.body['message']??"");
+   }else{
+     return ApiResponse.error(res.body!=null?res.body['message']:"Not valid authentication");
    }
   }
 

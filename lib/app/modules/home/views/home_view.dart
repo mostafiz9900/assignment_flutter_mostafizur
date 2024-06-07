@@ -162,7 +162,7 @@ class _HomeViewState extends State<HomeView> {
             backgroundColor: Colors.white,
             activeIndex: homeCon.bottomNavIndex,
             splashSpeedInMilliseconds: 300,
-            notchSmoothness: NotchSmoothness.defaultEdge,
+            notchSmoothness: NotchSmoothness.softEdge,
             gapLocation: GapLocation.center,
             leftCornerRadius: 10,
             rightCornerRadius: 10,

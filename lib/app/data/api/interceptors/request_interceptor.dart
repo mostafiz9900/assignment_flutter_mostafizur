@@ -10,7 +10,7 @@ FutureOr<Request> requestInterceptor(request) async {
   // request.headers['X-Requested-With'] = 'XMLHttpRequest';
   // request.headers['Authorization'] = 'Bearer $token';
 
-  EasyLoading.show(status: 'loading...');
+  // EasyLoading.show(status: 'loading...');
   requestlLogger(request);
   return request;
 }

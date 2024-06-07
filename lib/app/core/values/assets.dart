@@ -6,8 +6,9 @@ class AssetsConstants {
 
   // login screen assets
   static const String carBackground = "assets/images/img_login.jpg";
-  static const String demoProfileImagePng = "assets/simages/demo_profile_image.png";
+  static const String demoProfileImagePng = "assets/images/defoliate_image.jpg";
   static const String defoliateImageJpg = 'assets/images/defoliate_image.jpg';
+  static const String product2ImageJpg = 'assets/images/product2.png';
   static const String logo = 'assets/images/Dokan-Logo-color.png';
   static const String gmailSvg = 'assets/images/gmail.svg';
   static const String passwordSvg = 'assets/images/password.svg';
@@ -25,5 +26,10 @@ class AssetsConstants {
   static const String userProfileIconSvg = 'assets/images/user_profile_icon.svg';
   static const String notificationIconSvg = 'assets/images/notification_icon.svg';
   static const String heartIconSvg = 'assets/images/heart.svg';
+  static const String sortByIconSvg = 'assets/images/sort_by_icon.svg';
+  static const String productIconSvg = 'assets/images/product.png';
+  static const String filterIconSvg = 'assets/images/filter_icon.svg';
+  static const String downIconSvg = 'assets/images/down_icon.svg';
+  static const String productJson = 'assets/json/response.json';
 
 }
