@@ -112,6 +112,34 @@ class HomeController extends GetxController {
     }
 
   }
+  void filterLowAndHigh(){
+    loadHomePage=true;
+    if(isLowToHighPrice){
+      _productList.sort((a, b) => a.price!.compareTo(b.price!));
+      loadHomePage=false;
+      update();
+      for(ProductResponse p in productList) {
+        print(p.price);
+        print('low to high');
+      }
+
+
+    }else if(isHighToLowPrice){
+      _productList.sort((b, a) => a.price!.compareTo(b.price!));
+      for(ProductResponse p in productList) {
+        print(p.price);
+        print('high to low ===');
+      }
+      loadHomePage=false;
+      update();
+    }
+
+    Future.delayed(const Duration(milliseconds: 300),(){
+      cancleFilter();
+      Get.back();
+    });
+
+  }
 
   LoginResponse userInfo=LoginResponse();
   void getUserInfo(){

@@ -137,6 +137,7 @@ class HomeWidget extends StatelessWidget {
                               ],
                             ),
                             child: ElevatedButton(onPressed: (){
+                              homeController.filterLowAndHigh();
 
                             },style: ElevatedButton.styleFrom(
                               backgroundColor: hexToColor('#1ABC9C'),
@@ -207,18 +208,25 @@ class HomeWidget extends StatelessWidget {
                         ),
                         Row(
                           children: [
-                            Text('Sortby',style: TextStyle(
-                        fontSize: 15.63,
-                        fontWeight: FontWeight.w400,
-                        color: hexToColor('#818995')
-                           )),
-                            AppSpace.spaceW6,
                             InkWell(
-                                onTap: (){
-                                  homeCon.sortBy();
+                              onTap: (){
+                                homeCon.sortBy();
 
-                                },
-                                child: SvgPicture.asset(AssetsConstants.downIconSvg,color: hexToColor('#A0A9BD') ,)),
+                              },
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text('Sortby',style: TextStyle(
+                                                          fontSize: 15.63,
+                                                          fontWeight: FontWeight.w400,
+                                                          color: hexToColor('#818995')
+                                                             )),
+                                  AppSpace.spaceW6,
+                                SvgPicture.asset(AssetsConstants.downIconSvg,color: hexToColor('#A0A9BD') ,)
+                                ],
+                              ),
+                            ),
+
                             AppSpace.spaceW12,
                             InkWell(
                              onTap: (){
